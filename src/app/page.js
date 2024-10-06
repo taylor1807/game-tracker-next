@@ -4,7 +4,7 @@ export const metadata = {
   title: "My Game Tracker In Next",
   description: "A simple game post app with comments",
   openGraph: {
-    image: ["/public/images/Welcome.png"],
+    image: ["/images/Welcome.png"],
     title: "My Game Tracker In Next",
     description: "A simple game post app with comments",
   },
