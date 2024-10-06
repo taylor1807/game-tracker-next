@@ -8,7 +8,7 @@ export default function AddGameForm() {
 
     const { title, description, release_year } = Object.fromEntries(formData);
     try {
-      // console.log("adding" title;
+      // console.log("adding", title;
       await db.query(
         `INSERT INTO games_week08 (title, description, release_year) VALUES ($1, $2, $3)`,
         [title, description, release_year]

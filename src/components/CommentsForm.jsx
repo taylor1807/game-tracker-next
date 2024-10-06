@@ -7,7 +7,7 @@ export default function CommentsForm({ gameId }) {
     "use server";
     const { comment, name } = Object.fromEntries(formData);
     try {
-      // console.log("adding gameId);
+      // console.log("adding" gameId);
       await db.query(
         "INSERT INTO comments_week08 (game_id, comment, name) VALUES ($1, $2, $3)",
         [gameId, comment, name]

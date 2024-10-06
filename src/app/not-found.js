@@ -10,7 +10,7 @@ export default function NotFound() {
           404 - Not Found
         </h1>
         <p className="text-green-300 mb-6">
-          Oops! It seems like the page you are looking for does not exist.
+          You Should not be here, follow the link below to start again.
         </p>
         <Link
           href="/"
