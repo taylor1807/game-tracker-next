@@ -1,5 +1,15 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "My Game Tracker In Next",
+  description: "A simple game post app with comments",
+  openGraph: {
+    image: "/public/images/Welcome.png",
+    title: "My Game Tracker In Next",
+    description: "A simple game post app with comments",
+  },
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black text-green-500 p-6">
@@ -14,7 +24,7 @@ export default function Home() {
         href="/games"
         className="text-4xl px-8 py-4 bg-green-700 hover:bg-green-600 text-black border border-green-500 rounded-lg"
       >
-        Begin
+        Start
       </Link>
     </div>
   );

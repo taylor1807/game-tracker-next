@@ -1,4 +1,5 @@
 import AddGameForm from "@/components/AddGameForm";
+import Link from "next/link";
 
 export const metadata = {
   title: "Add A New Game",

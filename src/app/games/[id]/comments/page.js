@@ -31,7 +31,7 @@ export default async function CommentsPage({ params }) {
                 </h3>
                 <p className="mb-6 text-center">{comment.comment}</p>
                 <Link
-                  className="mb-6 text-center"
+                  className="text-green-400 hover:shadow-[0_0_10px_3px_rgba(0,255,0,0.5)] transition-shadow duration-300"
                   href={`/games/${params.id}/comments/${comment.id}/edit`}
                 >
                   Edit Comment
@@ -44,12 +44,26 @@ export default async function CommentsPage({ params }) {
             No Comments as of yet, feel free to add one.
           </p>
         )}
-        <Link
-          className="text-3xl px-8 py-4 bg-green-700 hover:bg-green-600 text-black border border-green-500 rounded-lg mt-8"
-          href={`/games/${params.id}/comments/form`}
-        >
-          Add a new Comment
-        </Link>
+        <div className="flex justify-center space-x-4 mt-4">
+          <Link
+            className="bg-green-700 hover:bg-green-600 px-4 py-2 border border-green-500 rounded"
+            href={`/games/${params.id}/comments/form`}
+          >
+            Add a new Comment
+          </Link>
+          <Link
+            className="bg-green-700 hover:bg-green-600 px-4 py-2 border border-green-500 rounded"
+            href={`/games/${params.id}`}
+          >
+            Back
+          </Link>
+          <Link
+            className="bg-green-700 hover:bg-green-600 px-4 py-2 border border-green-500 rounded"
+            href={"/games"}
+          >
+            Return to Games
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { db } from "@/utilities/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default function AddGameForm() {
   async function handleSubmit(formData) {
@@ -24,6 +25,13 @@ export default function AddGameForm() {
 
   return (
     <div>
+      <Link
+        className="text-green-400 hover:shadow-[0_0_10px_3px_rgba(0,255,0,0.5)] transition-shadow duration-300"
+        href={"/games"}
+      >
+        Return to Games
+      </Link>
+      <h1 className="text-4xl font-bold mb-4 text-center"> Add A New Game</h1>
       <form action={handleSubmit}>
         <input
           className="bg-black text-green-500 p-2 w-full border border-green-600"

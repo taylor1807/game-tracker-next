@@ -55,7 +55,7 @@ export default async function GamePage({ searchParams }) {
             <h2 className="text-2xl font-bold mb-2">{game.title}</h2>
             <Link
               href={`/games/${game.id}`}
-              className="text-green-400 hover:underline"
+              className="text-green-400 hover:shadow-[0_0_10px_3px_rgba(0,255,0,0.5)] transition-shadow duration-300"
             >
               View Game Details
             </Link>

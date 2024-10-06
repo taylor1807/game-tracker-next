@@ -33,6 +33,12 @@ export default async function SingleGamePage({ params }) {
           >
             View Comments
           </Link>
+          <Link
+            className="bg-green-700 hover:bg-green-600 px-4 py-2 border border-green-500 rounded"
+            href={"/games"}
+          >
+            Return to Games
+          </Link>
         </div>
 
         <DeleteGameButton gameId={game.id} />
