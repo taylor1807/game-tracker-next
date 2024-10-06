@@ -2,6 +2,16 @@ import { db } from "@/utilities/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+export async function generateMetadata({ params }) {
+  const game = (
+    await db.query("SELECT * FROM games_week08 WHERE id = $1", [params.id])
+  ).rows[0];
+  return {
+    title: `Edit comments for ${game.title}`,
+    description: `Edit your thoughts and feelings for ${game.title}.`,
+  };
+}
+
 export default async function EditPage({ params }) {
   const { id: gameId, commentId } = params;
   const comment = await db.query(

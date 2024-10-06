@@ -1,6 +1,9 @@
-// app/not-found.js
-
 import Link from "next/link";
+
+export const metadata = {
+  title: "404 Not Found",
+  description: "You Should Not Be Here",
+};
 
 export default function NotFound() {
   return (

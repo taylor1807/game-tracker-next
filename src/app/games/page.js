@@ -1,6 +1,11 @@
 import { db } from "@/utilities/db";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Games List",
+  description: "A simple game post app with comments",
+};
+
 export default async function GamePage({ searchParams }) {
   const games = (await db.query(`SELECT * FROM games_week08`)).rows;
 

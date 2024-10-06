@@ -2,6 +2,16 @@ import { db } from "@/utilities/db";
 import Link from "next/link";
 import DeleteGameButton from "@/components/DeleteGameButton";
 
+export async function generateMetadata({ params }) {
+  const game = (
+    await db.query("SELECT * FROM games_week08 WHERE id = $1", [params.id])
+  ).rows[0];
+  return {
+    title: `${game.title} info`,
+    description: `Learn more about ${game.title}, and add some comments.`,
+  };
+}
+
 export default async function SingleGamePage({ params }) {
   const game = (
     await db.query("SELECT * FROM games_week08 WHERE id = $1", [params.id])

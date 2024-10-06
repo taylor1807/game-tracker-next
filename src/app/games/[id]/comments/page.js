@@ -1,6 +1,16 @@
 import { db } from "@/utilities/db";
 import Link from "next/link";
 
+export async function generateMetadata({ params }) {
+  const game = (
+    await db.query("SELECT * FROM games_week08 WHERE id = $1", [params.id])
+  ).rows[0];
+  return {
+    title: `Comments for ${game.title}`,
+    description: `Add your thoughts and feelings for ${game.title}.`,
+  };
+}
+
 export default async function CommentsPage({ params }) {
   const comment = await db.query(
     `SELECT * FROM comments_week08 WHERE game_id = $1`,

@@ -1,4 +1,5 @@
 import { db } from "@/utilities/db";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export default function DeleteGameButton({ gameId }) {
@@ -15,12 +16,12 @@ export default function DeleteGameButton({ gameId }) {
     } catch (error) {
       // console.error(error);
     }
-
+    revalidatePath("/games");
     redirect("/games");
   }
-
+  // added value as to make sure the gameId in question was prefilled as the input was going to be hidden
   return (
-    <form action={handleDelete} style={{ marginTop: "20px" }}>
+    <form action={handleDelete}>
       <input type="hidden" name="gameId" value={gameId} />
       <button
         type="submit"
@@ -31,4 +32,4 @@ export default function DeleteGameButton({ gameId }) {
     </form>
   );
 }
-//this one gave me a bit of a headache trying to get "use client" and "use server" in the correct places, i knew the SQL to delete a game, i tried adding a button to the page, but got errors regarding client/server each time, i left it for a while and decided to make a component to call in instead after more troubleshooting i managed to find the best way was with a form entry (stack overflow i love you).
+//this one gave me a bit of a headache trying to get "use client" and "use server" in the correct places, i knew the SQL to delete a game, i tried adding a button to the page, but got errors regarding client/server each time, i left it for a while and decided to make a component to call in instead after more troubleshooting (and googling) i decided on a form consisting of a button which i could insert
